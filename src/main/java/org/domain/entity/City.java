@@ -1,8 +1,14 @@
 package org.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(schema = "world", name = "city")
 public class City {
     @Id
@@ -18,8 +24,5 @@ public class City {
     private String district;
 
     private Integer population;
-
-
-    //Getters and Setters omitted
 
 }

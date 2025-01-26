@@ -1,11 +1,17 @@
 package org.domain.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(schema = "world", name = "country")
 public class Country {
     @Id
@@ -58,8 +64,5 @@ public class Country {
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
     private Set<CountryLanguage> languages;
-
-
-    //Getters and Setters omitted
 
 }

@@ -1,11 +1,17 @@
 package org.domain.entity;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
+import lombok.*;
+import org.hibernate.annotations.JdbcType;
+import org.hibernate.type.descriptor.jdbc.BooleanJdbcType;
 
 import java.math.BigDecimal;
 
 @Entity
+@Setter
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(schema = "world", name = "country_language")
 public class CountryLanguage {
     @Id
@@ -19,12 +25,9 @@ public class CountryLanguage {
 
     private String language;
 
+    @JdbcType(BooleanJdbcType.class)
     @Column(name = "is_official", columnDefinition = "BIT")
-    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean isOfficial;
 
     private BigDecimal percentage;
-
-
-    //Getters and Setters omitted
 }
